@@ -166,12 +166,40 @@ class Ui_MainWindow(object):
 
         self.groupBox_2 = QGroupBox(self.groupBox_3)
         self.groupBox_2.setObjectName(u"groupBox_2")
+        self.groupBox_2.setMinimumSize(QSize(0, 100))
         self.verticalLayout_2 = QVBoxLayout(self.groupBox_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.print = QPlainTextEdit(self.groupBox_2)
-        self.print.setObjectName(u"print")
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.label_15 = QLabel(self.groupBox_2)
+        self.label_15.setObjectName(u"label_15")
 
-        self.verticalLayout_2.addWidget(self.print)
+        self.horizontalLayout_8.addWidget(self.label_15)
+
+        self.opoint = QLineEdit(self.groupBox_2)
+        self.opoint.setObjectName(u"opoint")
+        self.opoint.setReadOnly(True)
+
+        self.horizontalLayout_8.addWidget(self.opoint)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_8)
+
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.label_16 = QLabel(self.groupBox_2)
+        self.label_16.setObjectName(u"label_16")
+
+        self.horizontalLayout_9.addWidget(self.label_16)
+
+        self.maxval = QLineEdit(self.groupBox_2)
+        self.maxval.setObjectName(u"maxval")
+        self.maxval.setReadOnly(True)
+
+        self.horizontalLayout_9.addWidget(self.maxval)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_9)
 
 
         self.verticalLayout_3.addWidget(self.groupBox_2)
@@ -232,5 +260,7 @@ class Ui_MainWindow(object):
         self.solve.setText(QCoreApplication.translate("MainWindow", u"\u6c42\u89e3", None))
         self.add.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u7ea6\u675f", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"\u8f93\u51fa", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u6807\u6700\u4f18\u70b9", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u6807\u51fd\u6570\u503c", None))
     # retranslateUi
 
