@@ -22,7 +22,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1064, 569)
+        MainWindow.resize(1064, 722)
+        self.about = QAction(MainWindow)
+        self.about.setObjectName(u"about")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
@@ -122,6 +124,12 @@ class Ui_MainWindow(object):
 
         self.label_7 = QLabel(self.groupBox)
         self.label_7.setObjectName(u"label_7")
+        font = QFont()
+        font.setFamily(u"\u5fae\u8f6f\u96c5\u9ed1")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_7.setFont(font)
 
         self.verticalLayout.addWidget(self.label_7)
 
@@ -142,7 +150,18 @@ class Ui_MainWindow(object):
         self.table.setVerticalHeaderItem(1, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.table.setItem(0, 0, __qtablewidgetitem5)
+        __qtablewidgetitem6 = QTableWidgetItem()
+        self.table.setItem(0, 1, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.table.setItem(0, 2, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.table.setItem(1, 0, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        self.table.setItem(1, 1, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.table.setItem(1, 2, __qtablewidgetitem10)
         self.table.setObjectName(u"table")
+        self.table.horizontalHeader().setDefaultSectionSize(66)
 
         self.verticalLayout.addWidget(self.table)
 
@@ -150,11 +169,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.solve = QPushButton(self.groupBox)
         self.solve.setObjectName(u"solve")
+        self.solve.setMinimumSize(QSize(0, 36))
 
         self.horizontalLayout_4.addWidget(self.solve)
 
         self.add = QPushButton(self.groupBox)
         self.add.setObjectName(u"add")
+        self.add.setMinimumSize(QSize(0, 36))
 
         self.horizontalLayout_4.addWidget(self.add)
 
@@ -166,51 +187,28 @@ class Ui_MainWindow(object):
 
         self.groupBox_2 = QGroupBox(self.groupBox_3)
         self.groupBox_2.setObjectName(u"groupBox_2")
-        self.groupBox_2.setMinimumSize(QSize(0, 100))
         self.verticalLayout_2 = QVBoxLayout(self.groupBox_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.horizontalLayout_8 = QHBoxLayout()
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.label_15 = QLabel(self.groupBox_2)
-        self.label_15.setObjectName(u"label_15")
+        self.print = QPlainTextEdit(self.groupBox_2)
+        self.print.setObjectName(u"print")
+        font1 = QFont()
+        font1.setFamily(u"\u9ed1\u4f53")
+        font1.setPointSize(14)
+        self.print.setFont(font1)
 
-        self.horizontalLayout_8.addWidget(self.label_15)
-
-        self.opoint = QLineEdit(self.groupBox_2)
-        self.opoint.setObjectName(u"opoint")
-        self.opoint.setReadOnly(True)
-
-        self.horizontalLayout_8.addWidget(self.opoint)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_8)
-
-        self.horizontalLayout_9 = QHBoxLayout()
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.label_16 = QLabel(self.groupBox_2)
-        self.label_16.setObjectName(u"label_16")
-
-        self.horizontalLayout_9.addWidget(self.label_16)
-
-        self.maxval = QLineEdit(self.groupBox_2)
-        self.maxval.setObjectName(u"maxval")
-        self.maxval.setReadOnly(True)
-
-        self.horizontalLayout_9.addWidget(self.maxval)
-
-
-        self.verticalLayout_2.addLayout(self.horizontalLayout_9)
+        self.verticalLayout_2.addWidget(self.print)
 
 
         self.verticalLayout_3.addWidget(self.groupBox_2)
 
+        self.verticalLayout_3.setStretch(1, 1)
 
         self.horizontalLayout.addWidget(self.groupBox_3)
 
         self.plot = PlotWidget(self.centralwidget)
         self.plot.setObjectName(u"plot")
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(2)
+        sizePolicy1.setHorizontalStretch(5)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.plot.sizePolicy().hasHeightForWidth())
         self.plot.setSizePolicy(sizePolicy1)
@@ -221,10 +219,15 @@ class Ui_MainWindow(object):
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
         self.menubar.setGeometry(QRect(0, 0, 1064, 23))
+        self.menu = QMenu(self.menubar)
+        self.menu.setObjectName(u"menu")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+        self.menubar.addAction(self.menu.menuAction())
+        self.menu.addAction(self.about)
 
         self.retranslateUi(MainWindow)
 
@@ -232,7 +235,8 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u7ebf\u6027\u89c4\u5212", None))
+        self.about.setText(QCoreApplication.translate("MainWindow", u"\u5173\u4e8e", None))
         self.groupBox_3.setTitle("")
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u8f93\u5165", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u6807\u51fd\u6570\uff1a", None))
@@ -255,12 +259,23 @@ class Ui_MainWindow(object):
 
         __sortingEnabled = self.table.isSortingEnabled()
         self.table.setSortingEnabled(False)
+        ___qtablewidgetitem5 = self.table.item(0, 0)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"1", None));
+        ___qtablewidgetitem6 = self.table.item(0, 1)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"-1", None));
+        ___qtablewidgetitem7 = self.table.item(0, 2)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"2", None));
+        ___qtablewidgetitem8 = self.table.item(1, 0)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"1", None));
+        ___qtablewidgetitem9 = self.table.item(1, 1)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"1", None));
+        ___qtablewidgetitem10 = self.table.item(1, 2)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"2", None));
         self.table.setSortingEnabled(__sortingEnabled)
 
         self.solve.setText(QCoreApplication.translate("MainWindow", u"\u6c42\u89e3", None))
         self.add.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u7ea6\u675f", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"\u8f93\u51fa", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u6807\u6700\u4f18\u70b9", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"\u76ee\u6807\u51fd\u6570\u503c", None))
+        self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u5e2e\u52a9", None))
     # retranslateUi
 

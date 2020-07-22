@@ -20,10 +20,27 @@ class LinearProgram:
                 xrange = self.xrange(index)  # l上x的取值区间
                 if xrange is None:
                     return None
-                p, ans = self.getp(xrange, index)  # 根据区间求出l上具体的点和函数值
+                p = self.getp(xrange, index)  # 根据区间求出l上最优的的p点
                 self.v = p
-            print('v=', self.v)
-        return self.v
+            print(f'v{index + 1}=', self.v)
+        ans = self.fun[0] * self.v[0] + self.fun[1] * self.v[1]  # 目标函数值
+        return self.v, ans
+
+    def add(self, newline):
+        """添加约束条件时更新"""
+        self.lines.append(newline)
+        index = len(self.lines) - 1
+        if newline[0] * self.v[0] + newline[1] * self.v[1] <= newline[2]:
+            pass  # 如果v满足当前半平面则v不变
+        else:
+            xrange = self.xrange(index)  # l上x的取值区间
+            if xrange is None:
+                return None
+            p = self.getp(xrange, index)  # 根据区间求出l上最优的的p点
+            self.v = p
+        print(f'v{index + 1}', self.v)
+        ans = self.fun[0] * self.v[0] + self.fun[1] * self.v[1]  # 目标函数值
+        return self.v, ans
 
     def xrange(self, index):
         xleft = []
@@ -56,27 +73,26 @@ class LinearProgram:
 
     def getp(self, xrange, index):
         x1 = xrange[0]
-        # 除数不为零
         y1 = (self.lines[index][2] - self.lines[index][0] * x1) / self.lines[index][1]
         if y1 > self.limts[1]:
             y1 = self.limts[1]
         elif y1 < -self.limts[1]:
             y1 = -self.limts[1]
+
         x2 = xrange[1]
         y2 = (self.lines[index][2] - self.lines[index][0] * x2) / self.lines[index][1]
         if y2 > self.limts[1]:
             y2 = self.limts[1]
         elif y2 < -self.limts[1]:
             y2 = -self.limts[1]
+
         a = self.fun[0] * x1 + self.fun[1] * y1
         b = self.fun[0] * x2 + self.fun[1] * y2
         if a >= b:
             p = [x1, y1]
-            ans = a
         else:
             p = [x2, y2]
-            ans = b
-        return p, ans
+        return p
 
 
 if __name__ == '__main__':
