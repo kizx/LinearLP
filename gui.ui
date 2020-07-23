@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1064</width>
+    <width>1075</width>
     <height>722</height>
    </rect>
   </property>
@@ -19,14 +19,14 @@
      <widget class="QGroupBox" name="groupBox_3">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>1</horstretch>
+        <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
       <property name="title">
        <string/>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,1">
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0">
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
@@ -128,6 +128,9 @@
             </item>
             <item>
              <widget class="QDoubleSpinBox" name="m1">
+              <property name="statusTip">
+               <string>X的取值范围</string>
+              </property>
               <property name="minimum">
                <double>-1000.000000000000000</double>
               </property>
@@ -148,6 +151,9 @@
             </item>
             <item>
              <widget class="QDoubleSpinBox" name="m2">
+              <property name="statusTip">
+               <string>Y的取值范围</string>
+              </property>
               <property name="minimum">
                <double>-1000.000000000000000</double>
               </property>
@@ -178,8 +184,11 @@
           </item>
           <item>
            <widget class="QTableWidget" name="table">
+            <property name="statusTip">
+             <string>约束条件</string>
+            </property>
             <attribute name="horizontalHeaderDefaultSectionSize">
-             <number>66</number>
+             <number>80</number>
             </attribute>
             <row>
              <property name="text">
@@ -218,7 +227,7 @@
             </item>
             <item row="0" column="2">
              <property name="text">
-              <string>2</string>
+              <string>10</string>
              </property>
             </item>
             <item row="1" column="0">
@@ -233,7 +242,7 @@
             </item>
             <item row="1" column="2">
              <property name="text">
-              <string>2</string>
+              <string>10</string>
              </property>
             </item>
            </widget>
@@ -248,6 +257,9 @@
                 <height>36</height>
                </size>
               </property>
+              <property name="statusTip">
+               <string>根据上表一次性求解</string>
+              </property>
               <property name="text">
                <string>求解</string>
               </property>
@@ -261,6 +273,9 @@
                 <height>36</height>
                </size>
               </property>
+              <property name="statusTip">
+               <string>添加约束递增式求解</string>
+              </property>
               <property name="text">
                <string>添加约束</string>
               </property>
@@ -273,6 +288,12 @@
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="title">
           <string>输出</string>
          </property>
@@ -282,8 +303,11 @@
             <property name="font">
              <font>
               <family>黑体</family>
-              <pointsize>14</pointsize>
+              <pointsize>13</pointsize>
              </font>
+            </property>
+            <property name="statusTip">
+             <string>输出</string>
             </property>
            </widget>
           </item>
@@ -301,6 +325,9 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="statusTip">
+       <string>左键移动 中键缩放</string>
+      </property>
      </widget>
     </item>
    </layout>
@@ -310,7 +337,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1064</width>
+     <width>1075</width>
      <height>23</height>
     </rect>
    </property>

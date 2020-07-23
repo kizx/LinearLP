@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1064, 722)
+        MainWindow.resize(1075, 722)
         self.about = QAction(MainWindow)
         self.about.setObjectName(u"about")
         self.centralwidget = QWidget(MainWindow)
@@ -32,7 +32,7 @@ class Ui_MainWindow(object):
         self.groupBox_3 = QGroupBox(self.centralwidget)
         self.groupBox_3.setObjectName(u"groupBox_3")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(1)
+        sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.groupBox_3.sizePolicy().hasHeightForWidth())
         self.groupBox_3.setSizePolicy(sizePolicy)
@@ -161,7 +161,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem10 = QTableWidgetItem()
         self.table.setItem(1, 2, __qtablewidgetitem10)
         self.table.setObjectName(u"table")
-        self.table.horizontalHeader().setDefaultSectionSize(66)
+        self.table.horizontalHeader().setDefaultSectionSize(80)
 
         self.verticalLayout.addWidget(self.table)
 
@@ -187,13 +187,18 @@ class Ui_MainWindow(object):
 
         self.groupBox_2 = QGroupBox(self.groupBox_3)
         self.groupBox_2.setObjectName(u"groupBox_2")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.groupBox_2.sizePolicy().hasHeightForWidth())
+        self.groupBox_2.setSizePolicy(sizePolicy1)
         self.verticalLayout_2 = QVBoxLayout(self.groupBox_2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.print = QPlainTextEdit(self.groupBox_2)
         self.print.setObjectName(u"print")
         font1 = QFont()
         font1.setFamily(u"\u9ed1\u4f53")
-        font1.setPointSize(14)
+        font1.setPointSize(13)
         self.print.setFont(font1)
 
         self.verticalLayout_2.addWidget(self.print)
@@ -201,24 +206,23 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.groupBox_2)
 
-        self.verticalLayout_3.setStretch(1, 1)
 
         self.horizontalLayout.addWidget(self.groupBox_3)
 
         self.plot = PlotWidget(self.centralwidget)
         self.plot.setObjectName(u"plot")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(5)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.plot.sizePolicy().hasHeightForWidth())
-        self.plot.setSizePolicy(sizePolicy1)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(5)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.plot.sizePolicy().hasHeightForWidth())
+        self.plot.setSizePolicy(sizePolicy2)
 
         self.horizontalLayout.addWidget(self.plot)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1064, 23))
+        self.menubar.setGeometry(QRect(0, 0, 1075, 23))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         MainWindow.setMenuBar(self.menubar)
@@ -244,7 +248,13 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Y", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u7ea6\u675f\u6761\u4ef6\uff1a", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"m1\uff1a", None))
+#if QT_CONFIG(statustip)
+        self.m1.setStatusTip(QCoreApplication.translate("MainWindow", u"X\u7684\u53d6\u503c\u8303\u56f4", None))
+#endif // QT_CONFIG(statustip)
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"m2\uff1a", None))
+#if QT_CONFIG(statustip)
+        self.m2.setStatusTip(QCoreApplication.translate("MainWindow", u"Y\u7684\u53d6\u503c\u8303\u56f4", None))
+#endif // QT_CONFIG(statustip)
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u534a\u5e73\u9762\uff1aaX + bY <= c", None))
         ___qtablewidgetitem = self.table.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"a", None));
@@ -264,18 +274,33 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem6 = self.table.item(0, 1)
         ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"-1", None));
         ___qtablewidgetitem7 = self.table.item(0, 2)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"2", None));
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"10", None));
         ___qtablewidgetitem8 = self.table.item(1, 0)
         ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"1", None));
         ___qtablewidgetitem9 = self.table.item(1, 1)
         ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"1", None));
         ___qtablewidgetitem10 = self.table.item(1, 2)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"2", None));
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"10", None));
         self.table.setSortingEnabled(__sortingEnabled)
 
+#if QT_CONFIG(statustip)
+        self.table.setStatusTip(QCoreApplication.translate("MainWindow", u"\u7ea6\u675f\u6761\u4ef6", None))
+#endif // QT_CONFIG(statustip)
+#if QT_CONFIG(statustip)
+        self.solve.setStatusTip(QCoreApplication.translate("MainWindow", u"\u6839\u636e\u4e0a\u8868\u4e00\u6b21\u6027\u6c42\u89e3", None))
+#endif // QT_CONFIG(statustip)
         self.solve.setText(QCoreApplication.translate("MainWindow", u"\u6c42\u89e3", None))
+#if QT_CONFIG(statustip)
+        self.add.setStatusTip(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u7ea6\u675f\u9012\u589e\u5f0f\u6c42\u89e3", None))
+#endif // QT_CONFIG(statustip)
         self.add.setText(QCoreApplication.translate("MainWindow", u"\u6dfb\u52a0\u7ea6\u675f", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"\u8f93\u51fa", None))
+#if QT_CONFIG(statustip)
+        self.print.setStatusTip(QCoreApplication.translate("MainWindow", u"\u8f93\u51fa", None))
+#endif // QT_CONFIG(statustip)
+#if QT_CONFIG(statustip)
+        self.plot.setStatusTip(QCoreApplication.translate("MainWindow", u"\u5de6\u952e\u79fb\u52a8 \u4e2d\u952e\u7f29\u653e", None))
+#endif // QT_CONFIG(statustip)
         self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u5e2e\u52a9", None))
     # retranslateUi
 
