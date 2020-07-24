@@ -119,9 +119,11 @@ class LinearProgram:
 
 
 if __name__ == '__main__':
-    _ObjFun = [1, 1]
-    _limts = [100, 100]
-    _HalfPlanes = [[1, -1, 2], [1, 1, 2], [1, -1, -3]]
+    _ObjFun = [1, 1]  # 目标函数 默认为x+y
+    _limts = [100, 100]  # 边界约束
+    _HalfPlanes = [[1, -1, 2], [1, 1, 2], [1, -1, -3]]  # 半平面约束条件
     test = LinearProgram(_ObjFun, _limts, _HalfPlanes)
     myresult = test.main()
+    print('结果', myresult)
+    myresult = test.add([1, 2, 3])  # 动态添加约束
     print('结果', myresult)

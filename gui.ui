@@ -258,7 +258,7 @@
                </size>
               </property>
               <property name="statusTip">
-               <string>根据上表一次性求解</string>
+               <string>对表中所有约束进行求解</string>
               </property>
               <property name="text">
                <string>求解</string>
@@ -274,7 +274,7 @@
                </size>
               </property>
               <property name="statusTip">
-               <string>添加约束递增式求解</string>
+               <string>添加约束 支持动态更新</string>
               </property>
               <property name="text">
                <string>添加约束</string>

@@ -3,7 +3,7 @@ import numpy as np
 import pyqtgraph as pg
 from PySide2.QtGui import QIcon
 from PySide2.QtWidgets import *
-from PySide2.QtWidgets import QTableWidgetItem
+from PySide2.QtWidgets import QTableWidgetItem, QMessageBox
 
 from core import LinearProgram
 from gui import Ui_MainWindow
@@ -51,6 +51,7 @@ class Window(QMainWindow):
         self.LP = LinearProgram(self._fun, self._limits, self._lines)
         self.p, ans = self.LP.main()
         self.hasLP = True
+        self.ui.print.clear()
         if self.p is not None:
             self.ui.print.appendPlainText('目标点：({:.3f},{:.3f})\n'
                                           '函数值：[{:.3f}]\n'
@@ -59,7 +60,7 @@ class Window(QMainWindow):
         else:
             self.ui.print.appendPlainText('无解！\n'
                                           '---------------------------')
-            QMessageBox.warning(self, '无解', '约束范围内无解！')
+            QMessageBox.warning(self.ui.add, '无解', '约束范围内无解！')
 
     def addline(self):
         line = [addDialog.ui.a.value(), addDialog.ui.b.value(), addDialog.ui.c.value()]
@@ -82,7 +83,7 @@ class Window(QMainWindow):
             else:
                 self.ui.print.appendPlainText('无解！\n'
                                               '---------------------------')
-                QMessageBox.warning(self, '无解', '约束范围内无解！')
+                QMessageBox.warning(self.ui.add, '无解', '约束范围内无解！')
 
     def plot(self):
         x = [-self._limits[0], self._limits[0],
@@ -98,7 +99,6 @@ class Window(QMainWindow):
             x = np.array([-1000, 1000])
             if i[1] == 0:
                 x = [i[2] / i[0], i[2] / i[0]]
-                print(x)
                 y = [-1000, 1000]
                 self.ui.plot.plot(x, y, pen=pg.mkPen('k'), fillLevel=-1000,
                                   brush=(50, 50, 200, 100))  # 画半平面直线
